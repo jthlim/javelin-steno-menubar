@@ -2,12 +2,12 @@ import SwiftUI
 
 class MenuBarAppState : ObservableObject, HidManagerListener {
     @Published var devices = [JavelinDevice]()
-    @Published var iconName : String = "questionmark"
+    @Published var iconName : String = "Unknown"
     
     func onDeviceListUpdated(_ devices: [JavelinDevice]) {
         self.devices = devices
         if devices.isEmpty {
-            iconName = "questionmark"
+            iconName = "Unknown"
         }
     }
     
@@ -16,10 +16,10 @@ class MenuBarAppState : ObservableObject, HidManagerListener {
         
         switch (text) {
         case "layer: qwerty":
-            iconName = "keyboard"
+            iconName = "QWERTY"
             
         case "layer: steno":
-            iconName = "bolt"
+            iconName = "Steno"
             
         default:
             break;
@@ -37,7 +37,7 @@ struct javelin_steno_menubarApp: App {
     }
     
     var body: some Scene {
-        MenuBarExtra(state.iconName, systemImage: state.iconName) {
+        MenuBarExtra(state.iconName, image: state.iconName) {
             ForEach(state.devices, id: \.self) { device in
                 Button(device.getProductName()) {
                 }
