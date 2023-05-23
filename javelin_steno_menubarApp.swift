@@ -22,7 +22,7 @@ class MenuBarAppState : ObservableObject, HidManagerListener {
             iconName = "Steno"
             
         default:
-            break;
+            break
         }
     }
 }
