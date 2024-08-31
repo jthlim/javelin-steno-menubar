@@ -12,13 +12,13 @@ class MenuBarAppState : ObservableObject, HidManagerListener {
     }
 
     func onScriptEvent(text: String) {
-        print("Received Event: \(text)")
+        // print("Received Event: \(text)")
 
-        switch (text) {
-        case "layer: qwerty":
+        switch (text.localizedLowercase) {
+        case "layer_id: 1128808786":
             iconName = "QWERTY"
 
-        case "layer: steno":
+        case "layer_id: 87377230":
             iconName = "Steno"
 
         default:
